@@ -52,6 +52,8 @@ a {
   font-size: 1.25vw;
   max-width: 20%;
   min-width: 20%;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 
 .container {
