@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>FAQ @ Guilherme N. Ramos @ UnB</title>
+    <link rel="stylesheet" href="gnramos.css">
+    <script src="data.js"></script>
+    <script src="gnramos.js"></script>
+  </head>
+  <body>
+    <script>header();</script>
+    <div class="container">
+      <script>sidebar();</script>
+      <div id="content" class="info">
+        <!-- Editável -->
+        <p class="info-title">Disciplinas</p>
+        <script>show(LIST_COURSES.slice(0, 1), MAP_COURSES);</script>
+        <div id="TI-0" class="toggle-item" onclick="toggle('historico-disciplinas')"; style="padding: 0px;">
+            <em>Clique para o histórico</em><br/>
+        </div>
+        <div id="historico-disciplinas" class="toggle-content" style="padding: 0px;">
+          <script>show(LIST_COURSES.slice(1), MAP_COURSES);</script>
+        </div>
+
+        <p class="info-title">Orientações</p>
+        <script>show(LIST_STUDENTS, MAP_STUDENTS);</script>
+        <!-- /Editável -->
+      </div>
+    </div>
+    <script>footer();</script>
+  </body>
+</html>

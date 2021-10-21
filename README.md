@@ -1,2 +1,0 @@
-# www
-gnramos home page
