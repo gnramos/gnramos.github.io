@@ -36,13 +36,14 @@ function footer() {
 }
 
 function sidebar() {
+  const contact = ['gnramos', '@', 'unb', '.', 'br'].join('');
   string = `<div class="side-bar">
         <img src="img/gnramos.jpg" width=90% style="padding: 5%;">
         <ul>
           <li style="list-style-image: url(img/person.png);"><a href="https://cic.unb.br/">Professor Associado</a></li>
           <li style="list-style-image: url(img/earth.png);"><a href="agenda.html">Agenda</a></li>
           <li style="list-style-image: url(img/lattes.png);"><a href="http://lattes.cnpq.br/7879595143050087">Lattes</a></li>
-          <li style="list-style-image: url(img/envelope.png);"><a href="mailto:gnramos@unb.br">gnramos@unb.br</a></li>
+          <li style="list-style-image: url(img/envelope.png);"><a href="mailto:${contact}">${contact}</a></li>
           <li style="list-style-image: url(img/phone.png);">+55 (61) 3107-2269</li>
           <li style="list-style-image: url(img/building.png);"><a href="https://maps.google.com/maps?ll=-15.758052,-47.868466&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=4121869616639421781">Sala A1-10/28</a></li>
         </ul>
