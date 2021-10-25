@@ -60,11 +60,14 @@ var MAP_STUDENTS = { // id: [título, url, extra]
                                              "http://proic.unb.br/images/Anais/2015/ResumoProIC-2013-Vol3.pdf",
                                              "- Rodrigo Werberich da S. M. de Oliveira"],
   "Tiago de Souza Fernandes": ["Desenvolvimento de Pacote Python para Migração entre Juízes Eletrônicos",
-                               "",
+                               "https://github.com/gnramos/convert-ej",
                                "- Tiago de Souza Fernandes"],
   "Wladimir G. Mesquita Gramacho": ["Algoritmos de Mineração de Dados para Análise de Evasão na Graduação da Universidade de Brasília",
                                     "https://conferencias.unb.br/index.php/iniciacaocientifica/25CICUnB16df/paper/view/19748",
-                                    `- Wladimir Ganzelevitch Mesquita Gramacho (indicado ao <a href="http://proic.unb.br/images/Congresso_2019/Indicados_ao_Pr%C3%AAmio_Destaque_de_Inicia%C3%A7%C3%A3o_Cient%C3%ADfica.pdf">Prêmio Destaque de Iniciação Científica</a>)`]
+                                    `- Wladimir Ganzelevitch Mesquita Gramacho (indicado ao <a href="http://proic.unb.br/images/Congresso_2019/Indicados_ao_Pr%C3%AAmio_Destaque_de_Inicia%C3%A7%C3%A3o_Cient%C3%ADfica.pdf">Prêmio Destaque de Iniciação Científica</a>)`],
+  "Tiago de S. Fernandes": ["Algoritmos de Mineração de Dados para Análise de Evasão na Graduação da Universidade de Brasília",
+                            "",
+                            "- Tiago de Souza Fernandes"]
 };
 
 var MAP_COURSES = {// id: [nome, url, extra]
@@ -81,6 +84,7 @@ var MAP_COURSES = {// id: [nome, url, extra]
 }
 
 var LIST_COURSES = [ // Ordem decrescente.
+                 ["2021/1", ["CIC0004", "CIC0090", "ENM0133"]],
                  ["2020/2", ["CIC0004", "CIC0090", "ENM0133"]],
                  ["2020/1", ["CIC0004", "CIC0087", "CIC0090"]],
                  ["2019/2", ["CIC0004", "CIC0090"]],
@@ -124,5 +128,6 @@ var LIST_STUDENTS = [
                           "Renato Avellar Nobre",
                           "Rodrigo Werberich da S. M. de Oliveira",
                           "Tiago de Souza Fernandes",
-                          "Wladimir G. Mesquita Gramacho"]]
+                          "Wladimir G. Mesquita Gramacho",
+                          "Tiago de S. Fernandes"]]
 ];
