@@ -20,7 +20,7 @@ function topMenu(lang='pt') {
                ["ENSINO", "ensino"],
                ["PESQUISA", "pesquisa"],
                ["FAQ", "faq"],
-               ['<img src="img/us.png" style="height:1.25vw;">', 'index_en']];
+               ['<img src="img/uk.png" style="height:1.25vw;">', 'index_en']];
 
   if (lang == 'en')
     items = [["HOME", "index_en"],
