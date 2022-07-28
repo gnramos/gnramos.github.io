@@ -65,12 +65,18 @@ var MAP_STUDENTS = { // id: [título, url, extra]
   "Tiago de Souza Fernandes": ["Desenvolvimento de Pacote Python para Migração entre Juízes Eletrônicos",
                                "https://github.com/gnramos/convert-ej",
                                "- Tiago de Souza Fernandes"],
+  "Tiago de S. Fernandes": ["Algoritmos de Mineração de Dados para Análise de Evasão na Graduação da Universidade de Brasília",
+                            "https://github.com/gnramos/trj-academica",
+                            "- Tiago de Souza Fernandes"],
+  "Tiago Fernandes": ["Aperfeiçoamento da Análise de Evasão na Graduação da Universidade de Brasília utilizando a abordagem de Mineração de Dados",
+                      "https://github.com/gnramos/trj-academica",
+                      "- Tiago de Souza Fernandes"],
+  "Wallace Ben Teng Lin Wu": ["Processamento de Linguagem Natural para Mapeamento da Estrutura Curricular de Formação em Engenharia Mecatrônica na UnB à Legislação Vigente",
+                              "https://github.com/gnramos/crea-tools",
+                              "- Wallace Ben Teng Lin Wu"  ],
   "Wladimir G. Mesquita Gramacho": ["Algoritmos de Mineração de Dados para Análise de Evasão na Graduação da Universidade de Brasília",
                                     "https://conferencias.unb.br/index.php/iniciacaocientifica/25CICUnB16df/paper/view/19748",
-                                    `- Wladimir Ganzelevitch Mesquita Gramacho (indicado ao <a href="http://proic.unb.br/images/Congresso_2019/Indicados_ao_Pr%C3%AAmio_Destaque_de_Inicia%C3%A7%C3%A3o_Cient%C3%ADfica.pdf">Prêmio Destaque de Iniciação Científica</a>)`],
-  "Tiago de S. Fernandes": ["Algoritmos de Mineração de Dados para Análise de Evasão na Graduação da Universidade de Brasília",
-                            "",
-                            "- Tiago de Souza Fernandes"]
+                                    `- Wladimir Ganzelevitch Mesquita Gramacho (indicado ao <a href="http://proic.unb.br/images/Congresso_2019/Indicados_ao_Pr%C3%AAmio_Destaque_de_Inicia%C3%A7%C3%A3o_Cient%C3%ADfica.pdf">Prêmio Destaque de Iniciação Científica</a>)`]
 };
 
 var MAP_COURSES = {// id: [nome, url, extra]
@@ -135,5 +141,7 @@ var LIST_STUDENTS = [
                           "Rodrigo Werberich da S. M. de Oliveira",
                           "Tiago de Souza Fernandes",
                           "Tiago de S. Fernandes",
+                          "Tiago Fernandes",
+                          "Wallace Ben Teng Lin Wu",
                           "Wladimir G. Mesquita Gramacho"]]
 ];
