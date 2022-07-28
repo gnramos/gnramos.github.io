@@ -87,6 +87,8 @@ var MAP_COURSES = {// id: [nome, url, extra]
 }
 
 var LIST_COURSES = [ // Ordem decrescente.
+                 ["2022/1", ["CIC0004", "CIC0090"]],
+                 ["2021/1", ["CIC0004", "CIC0090"]],
                  ["2021/1", ["CIC0004", "CIC0090", "ENM0133"]],
                  ["2020/2", ["CIC0004", "CIC0090", "ENM0133"]],
                  ["2020/1", ["CIC0004", "CIC0087", "CIC0090"]],
