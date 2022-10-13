@@ -69,7 +69,7 @@ var MAP_STUDENTS = { // id: [título, url, extra]
                             "doc/2021_PIBIC_Tiago.pdf",
                             `- Tiago de Souza Fernandes (<a href="https://github.com/gnramos/trj-academica">GitHub</a>)`],
   "Tiago Fernandes": ["Aperfeiçoamento da Análise de Evasão na Graduação da Universidade de Brasília utilizando a abordagem de Mineração de Dados",
-                      "https://github.com/gnramos/trj-academica",
+                      "doc/2022_PIBIC_Tiago.pdf",
                       `- Tiago de Souza Fernandes (<a href="https://github.com/gnramos/trj-academica">GitHub</a>)`],
   "Wallace Ben Teng Lin Wu": ["Processamento de Linguagem Natural para Mapeamento da Estrutura Curricular de Formação em Engenharia Mecatrônica na UnB à Legislação Vigente",
                               "doc/2022_PIBITI_Wallace.pdf",
