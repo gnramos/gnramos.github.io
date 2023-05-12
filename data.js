@@ -56,6 +56,9 @@ var MAP_STUDENTS = { // id: [título, url, extra]
   "Pedro Saman Diogenes Nogueira Cesarino": ["Implementação de Agente Racional Autônomo para Aprendizagem de Comportamentos Colaborativos",
                                              "doc/2017_PIBIC_Pedro.pdf",
                                              `- Pedro Saman Diogenes Nogueira Cesarino (<a href="http://conferencias.unb.br/index.php/iniciacaocientifica/23cicunb14df/paper/view/8360">Resumo</a>)`],
+  "Raphaela Guimaraes de Araujo dos Santos": ["Exploração de Algoritmos de Mineração de Dados para Análise de Evasão na Graduação da Universidade de Brasília",
+                                              "",
+                                              `- Raphaela Guimaraes de Araujo dos Santos`],
   "Renato Avellar Nobre": ["Implementação de Comunicação entre Agentes Autônomos para Aprendizagem de Comportamentos Colaborativos",
                            "doc/2017_PIBIC_Renato.pdf",
                            `- Renato Avellar Nobre (<a href="http://conferencias.unb.br/index.php/iniciacaocientifica/23cicunb14df/paper/view/8361">Resumo</a>)`],
@@ -93,6 +96,8 @@ var MAP_COURSES = {// id: [nome, url, extra]
 }
 
 var LIST_COURSES = [ // Ordem decrescente.
+                 ["2023/1", ["CIC0004", "CIC0090"]],
+                 ["2022/2", ["CIC0004", "CIC0090"]],
                  ["2022/1", ["CIC0004", "CIC0090"]],
                  ["2021/1", ["CIC0004", "CIC0090"]],
                  ["2021/1", ["CIC0004", "CIC0090", "ENM0133"]],
@@ -137,6 +142,7 @@ var LIST_STUDENTS = [
                           "Guido Dutra de Oliveira",
                           "Lucas Avelino de Lima Jacinto",
                           "Pedro Saman Diogenes Nogueira Cesarino",
+                          "Raphaela Guimaraes de Araujo dos Santos",
                           "Renato Avellar Nobre",
                           "Rodrigo Werberich da S. M. de Oliveira",
                           "Tiago de Souza Fernandes",
