@@ -3,106 +3,19 @@
   --green-unb: rgb(0, 129, 54);  /* #008136 */
 }
 
-a {
+.nav-pills .nav-link.active {
+  background-color: var(--blue-unb);
+}
+
+.nav-pills .nav-link {
   color: var(--blue-unb);
+}
+
+a {
+  color: var(--green-unb);
   text-decoration: none;
 }
 
-.header, .footer {
-  background-color: var(--blue-unb);
-  color: white;
-  padding: 25px;
-  text-align: center;
-}
-
-.header {
-  font-size: 2vw;
-  font-weight: bold;
-}
-
-.header-title {
-  font-size: 4vw;
-  font-weight: bold;
-  font-family: Helvetica;
-}
-
-.footer {
-  font-size: 2vw;
-}
-
-.menu, .menu-selected {
-  font-size: 1.75vw;
-  padding: 0px 25px 0px 25px;
-  text-align: center;
-  cursor: pointer;
-  font-family: Courier;
-}
-
-.menu {
-  background-color: var(--green-unb);
-  color: white;
-}
-
-.menu-selected {
-  /*padding: 10px;*/
-  background-color: white;
-  color: var(--green-unb);
-}
-.side-bar {
-  font-size: 1.25vw;
-  max-width: 20%;
-  min-width: 20%;
-  word-wrap: break-word;
-  overflow: hidden;
-}
-
-.container {
-  display: flex;
-}
-
-.info {
-  font-size: 1.5vw;
-  margin: 5px;
-}
-
-.info-title {
-  font-size: 2vw;
-  color: var(--green-unb);
-}
-
-.info-content {
-}
-
-.toggle-item {
-  cursor: pointer;
-  font-weight: bold;
-  padding: 15px 5px 5px 5px;
-}
-.toggle-content {
-  padding: 5px 5px 15px 5px;
-}
-
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  /*border-bottom: 1px dotted black;*/
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 20vw;
-  background-color: var(--green-unb);
-  color: white;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
+.accordion-header {
+  background-color: rgb(1, 63, 122, .1);
 }

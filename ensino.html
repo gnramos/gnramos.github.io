@@ -1,32 +1,49 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="pt-BR">
   <head>
-    <meta charset="utf-8"/>
-    <title>Ensino @ Guilherme N. Ramos @ UnB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ensino @ Guilherme N. Ramos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="gnramos.css">
-    <script src="data.js"></script>
-    <script src="gnramos.js"></script>
+    <script type="text/javascript" src="gnramos.js"></script>
+    <script type="text/javascript" src="ensino.js"></script>
+    <script type="text/javascript">
+      function listDisciplinas(periodo, codigos) {
+        let string = `<h5>${periodo}</h5>\n<ul>`;
+        for (codigo of codigos)
+          string += `\n\t<li>${COURSES[codigo]}</a></li>`;
+        return string + '</ul>';
+      }
+
+      let current = listDisciplinas(...(HISTORY.slice(0, 1)[0]));
+      let historico = '';
+      for ([periodo, codigos] of HISTORY.slice(1))
+        historico += listDisciplinas(periodo, codigos);
+      historico = ['Histórico', historico];
+      disciplinas = ['Disciplinas', current + accordion('Histórico', [historico])];
+
+      let accordions = [];
+      for ([grau, alunos] of STUDENTS) {
+        let string = '<ul>';
+        for ([nome, titulo, url, extra] of alunos) {
+          string += `\n\t<li><a href="${url}">${titulo}</a> - ${nome} ${extra}</li>`;
+        }
+        accordions.push([grau, string + '\n</ul>']);
+      }
+      let orientacoes = ['Orientações', accordion('Orientações', accordions)];
+    </script>
   </head>
   <body>
-    <script>header();topMenu();</script>
-    <div class="container">
-      <script>sidebar();</script>
-      <div id="content" class="info">
-        <!-- Editável -->
-        <p class="info-title">Disciplinas</p>
-        <script>show(LIST_COURSES.slice(0, 1), MAP_COURSES);</script>
-        <div id="TI-0" class="toggle-item" onclick="toggle('historico-disciplinas')"; style="padding: 0px;">
-            <em>Clique para o histórico</em><br/>
-        </div>
-        <div id="historico-disciplinas" class="toggle-content" style="padding: 0px;">
-          <script>show(LIST_COURSES.slice(1), MAP_COURSES);</script>
-        </div>
-
-        <p class="info-title">Orientações</p>
-        <script>show(LIST_STUDENTS, MAP_STUDENTS);</script>
-        <!-- /Editável -->
-      </div>
-    </div>
-    <script>footer();</script>
+    <script type="text/javascript">
+      document.write(header());
+    </script>
+    <h2>Ensino</h2>
+    <script type="text/javascript">
+      document.write(accordion('Disciplinas', [disciplinas, orientacoes]));
+      document.write(footer());
+    </script>
   </body>
 </html>

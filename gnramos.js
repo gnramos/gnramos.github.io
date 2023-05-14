@@ -1,129 +1,105 @@
-function header(lang='pt') {
-  var department = `<a href="https://cic.unb.br" class="header" style="padding: 0px;">CIÊNCIA DA COMPUTAÇÃO</a>`;
-  var institution = `<a href="https://www.unb.br" class="header" style="padding: 0px;">UNIVERSIDADE DE BRASÍLIA</a>`
+function navitemLinkClass(linkName) {
+  let url = window.location.pathname.split('/');
+  let page = url.pop();
+  let isActive = false;
+  if (linkName == 'atividades')
+    for (activity of ['ensino', 'pesquisa', 'extensao', 'administracao'])
+      isActive |= page.startsWith(activity);
+  else
+    isActive = page.startsWith(linkName);
 
-  if (lang == 'en') {
-    department = `<a href="https://cic.unb.br" class="header" style="padding: 0px;">COMPUTER SCIENCE</a>`;
-    institution = `<a href="https://international.unb.br/" class="header" style="padding: 0px;">UNIVERSITY OF BRASÍLIA</a>`
-  }
-
-  var string = `    <div class="header">
-      <span class="header-title">Guilherme N. Ramos</span><br>
-      ${department} | ${institution}
-    </div>`;
-
-  document.write(string);
+  return 'nav-link' + (isActive ? ' active' : '');
 }
 
-function topMenu(lang='pt') {
-  var items = [["INÍCIO", "index"],
-               ["ENSINO", "ensino"],
-               ["PESQUISA", "pesquisa"],
-               ["FAQ", "faq"],
-               ['<img src="img/uk.png" style="height:1.25vw;">', 'index_en']];
-
-  if (lang == 'en')
-    items = [["HOME", "index_en"],
-             ['<img src="img/br.png" style="height:1.25vw;">', 'index']];
-
-  var current = window.location.pathname.split("/").pop();
-  if (!current.endsWith('html'))
-    current = 'index.html';
-
-  var string = `
-    <div class="container menu">
-      <div class="side-bar"></div>
-      <div class="menu">`;
-
-  for (let item of items)
-    string += `<a href="${item[1]}.html" class="menu${current.startsWith(item[1] + '.') ? "-selected" : ""}">${item[0]}</a>`;
-
-  string += `
+function header() {
+  return `<div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="https://cic.unb.br/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="img/CIC.png" height="32">
+          </a>
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="index.html" class="${navitemLinkClass('index')}">Início</a></li>
+            <li class="nav-item dropdown">
+              <a class="${navitemLinkClass('atividades')} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                Atividades
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="ensino.html">Ensino</a></li>
+                <li><a class="dropdown-item" href="pesquisa.html">Pesquisa</a></li>
+                <li><a class="dropdown-item" href="extensao.html">Extensão</a></li>
+                <li><a class="dropdown-item" href="administracao.html">Administração</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="agenda.html" class="${navitemLinkClass('agenda')}">Agenda</a></li>
+            <li class="nav-item"><a href="faq.html" class="${navitemLinkClass('faq')}">FAQ</a></li>
+            <li class="nav-item"><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;unb.br" class="nav-link">
+              <img src="img/email.svg" alt="e-mail" height="20"/></a>
+            </li>
+            <li class="nav-item"><a href="http://lattes.cnpq.br/7879595143050087" class="nav-link">
+              <img src="img/lattes.png" alt="Currículo Lattes" height="20"/></a>
+            </li>
+            <li class="nav-item"><a href="index_en.html" class="nav-link"><img src="img/uk.png" height="20"/></a>
+            </li>
+          </ul>
+        </header>
       </div>
-    </div>`;
-
-  document.write(string);
+      <div class="container">`;
 }
 
-function footer(lang='pt') {
-  var copyright = `TODOS OS DIREITOS RESERVADOS.`
-
-  if (lang == 'en')
-    copyright = `ALL RIGHTS RESERVED.`
-
-  string = `    <div class="footer">
-      © GUILHERME N. RAMOS. ${copyright}
-    </div>`;
-
-  document.write(string);
+function footer() {
+  return `
+      </div>
+      <div class="container">
+        <footer class="py-3 my-4 border-top">
+          <p class="text-center text-body-secondary">&copy; ${new Date().getFullYear()} Guilherme N. Ramos</p>
+        </footer>
+      </div>`;
 }
 
-function sidebar(lang='pt') {
-  const contact = ['gnramos', '@', 'unb', '.', 'br'].join('');
-
-  // img file, info
-  var items = [['img/person.png', '<a href="https://cic.unb.br">Professor Associado</a>'],
-               ['img/earth.png', '<a href="agenda.html">Agenda</a>'],
-               ['img/lattes.png', '<a href="http://lattes.cnpq.br/7879595143050087">Lattes</a>'],
-               ['img/envelope.png', `<a href="mailto:${contact}">${contact}</a>`],
-               ['img/phone.png', '+55 (61) 3107-2269'],
-               ['img/building.png', '<a href="https://maps.google.com/maps?ll=-15.758052,-47.868466&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=4121869616639421781">Sala A1-10/28</a>'],
-              ];
-
-
-  if (lang == 'en') {
-    items[0][1] = '<a href="https://cic.unb.br">Associate Professor</a>';
-    items[1][1] = '<a href="agenda.html">Schedule</a>';
-    // items[2][1] = '';
-    // items[3][1] = '';
-    // items[4][1] = '';
-    items[5][1] = '<a href="https://maps.google.com/maps?ll=-15.758052,-47.868466&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=4121869616639421781">Room A1-10/28</a>';
+function accordion(name, items) {
+  let accItems = '';
+  let collapseFirst = true;
+  for (i in items) {
+    accItems += `
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading${name + i}">
+      <button class="accordion-button ${collapseFirst ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${name + i}" aria-expanded="false" aria-controls="collapse${name + i}" style="background: var(--unb-green)">
+        ${items[i][0]}
+      </button>
+    </h2>
+    <div id="collapse${name + i}" class="accordion-collapse collapse ${collapseFirst ? '' : 'show'}" aria-labelledby="heading${name + i}" data-bs-parent="#accordion${name}">
+      <div class="accordion-body">
+        ${items[i][1]}
+      </div>
+    </div>
+  </div>`;
+    if (!collapseFirst) collapseFirst = true;
   }
 
-  string = `<div class="side-bar">
-        <img src="img/gnramos.jpg" width=90% style="padding: 5%;">
-        <ul>`
-
- for (let item of items)
-    string += `<li style="list-style-image: url(${item[0]});">${item[1]}</li>`;
-
-  string += `
-        </ul>
-      </div>`;
-
-  document.write(string);
+  return `
+<div class="accordion" id="accordion${name}">
+  ${accItems}
+</div>`;
 }
 
 function show(list, map) {
-  var string = "";
+  let string = '';
 
   for (item of list) {
-    var title = item[0], values = item[1];
-    string += `
-                      <p class="info-content">
+    let [title, values] = item;
+    document.write(`
+                      <p>
                         <strong>${title}</strong>
-                        <ul>`;
+                        <ul>`);
 
-    for (id of values)
-      string += `
-                          <li><a href="${map[id][1]}">${map[id][0]}</a> ${map[id][2]}</li>`;
+    for (id of values) {
+      let [name, url, extra] = map[id];
+      document.write(`
+                          <li><a href="${url}">${name}</a> ${extra}</li>`);
+    }
 
-    string += `
+    document.write(`
                         </ul>
-                      </p>`;
+                      </p>`);
   }
-
-  document.write(string);
 }
-
-function toggle(itemId) {
-    var content = document.getElementById(itemId);
-    content.style.display = ('none' == content.style.display) ? '' : 'none';
-}
-
-function toggleAll() {
-  for (let e of document.getElementsByClassName("toggle-content"))
-    e.style.display = "none";
-}
-
-window.onload = toggleAll;
