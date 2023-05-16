@@ -29,7 +29,7 @@
       for ([grau, alunos] of STUDENTS) {
         let string = '<ul>';
         for ([nome, titulo, url, extra] of alunos) {
-          string += `\n\t<li><a href="${url}">${titulo}</a> - ${nome} ${extra}</li>`;
+          string += `\n\t<li>${nome}, <a href="${url}">${titulo}</a> ${extra}</li>`;
         }
         accordions.push([grau, string + '\n</ul>']);
       }
