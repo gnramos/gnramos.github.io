@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
-.accordion-header {
-  background-color: rgb(1, 63, 122, .1);
+.accordion-button.collapsed {
+    font-weight: normal;
+    color: var(--green-unb);
+}
+.accordion-button {
+    font-weight: bold;
 }

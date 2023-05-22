@@ -47,7 +47,6 @@ const HISTORY = [
   ['2011.2', ['CIC0089', 'CIC0135']],
   ['2011.1', ['CIC0089', 'CIC0135']]];
 
-
 const STUDENTS = [
   ['Doutorado', [['Tiago Barros Pontes e Silva',
                   'Morfogênese : sistema autopoiético emergente de vida artificial',

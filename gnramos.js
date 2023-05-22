@@ -11,6 +11,10 @@ function navitemLinkClass(linkName) {
   return 'nav-link' + (isActive ? ' active' : '');
 }
 
+function mailtolink() {
+  return "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;unb.br"
+}
+
 function header() {
   return `<div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -32,7 +36,7 @@ function header() {
             </li>
             <li class="nav-item"><a href="agenda.html" class="${navitemLinkClass('agenda')}">Agenda</a></li>
             <li class="nav-item"><a href="faq.html" class="${navitemLinkClass('faq')}">FAQ</a></li>
-            <li class="nav-item"><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;unb.br" class="nav-link">
+            <li class="nav-item"><a href="${mailtolink()}" class="nav-link">
               <img src="img/email.svg" alt="e-mail" height="20"/></a>
             </li>
             <li class="nav-item"><a href="http://lattes.cnpq.br/7879595143050087" class="nav-link">
