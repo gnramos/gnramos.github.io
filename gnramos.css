@@ -18,8 +18,12 @@ a {
 
 .accordion-button.collapsed {
     font-weight: normal;
-    color: var(--green-unb);
+    color: var(--green-unb) !important;
+    background-color: white !important;
 }
+
 .accordion-button {
     font-weight: bold;
+    color: white !important;
+    background-color: var(--blue-unb) !important;
 }
