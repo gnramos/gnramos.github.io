@@ -31,3 +31,8 @@ a {
 .accordion-button:focus {
     box-shadow: none;
 }
+
+.dropdown-item:focus, .dropdown-item:hover {
+	background-color: var(--blue-unb);
+	color: white !important;
+}
