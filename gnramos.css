@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+a:focus {
+    box-shadow: 0 0 0 0.2rem var(--green-unb);
+}
+
 .accordion-button.collapsed {
     font-weight: normal;
     color: var(--green-unb) !important;
@@ -29,10 +33,17 @@ a {
 }
 
 .accordion-button:focus {
-    box-shadow: none;
+    box-shadow: 0 0 0 0.2rem var(--green-unb);
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
-	background-color: var(--blue-unb);
-	color: white !important;
+    background-color: var(--blue-unb);
+    color: white !important;
+}
+
+.nav-link:focus {
+    box-shadow: 0 0 0 0.2rem var(--green-unb);
+}
+.nav-link:focus.active {
+    box-shadow: 0 0 0 0.2rem var(--green-unb);
 }
