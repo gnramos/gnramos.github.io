@@ -27,3 +27,7 @@ a {
     color: white !important;
     background-color: var(--blue-unb) !important;
 }
+
+.accordion-button:focus {
+    box-shadow: none;
+}
