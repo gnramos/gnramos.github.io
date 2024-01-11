@@ -43,6 +43,7 @@ a:focus {
 .dropdown-item:focus, .dropdown-item:hover {
     background-color: var(--blue-unb);
     color: white !important;
+    box-shadow: none;
 }
 
 .nav-link:focus {
