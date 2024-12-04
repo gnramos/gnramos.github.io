@@ -15,15 +15,19 @@
         let string = `<h5>${periodo}</h5>\n<ul>`;
         for (codigo of codigos)
           string += `\n\t<li>${COURSES[codigo]}</a></li>`;
-        return string + '</ul>';
+        return string + '\n</ul>';
       }
 
-      let current = listDisciplinas(...(HISTORY.slice(0, 1)[0]));
-      let historico = '';
-      for ([periodo, codigos] of HISTORY.slice(1))
-        historico += listDisciplinas(periodo, codigos);
-      historico = ['Histórico', historico];
-      disciplinas = ['Disciplinas', current + accordion('Histórico', [historico])];
+      let current = listDisciplinas(...(HISTORY[0][1].slice(0, 1)[0]));
+      let disciplinas = '';
+      let historico = [];
+      for ([decada, info] of HISTORY) {
+        disciplinas = '';
+        for ([periodo, codigos] of info)
+          disciplinas += listDisciplinas(periodo, codigos);
+        historico.push([decada, disciplinas]);
+      }
+      disciplinas = ['Disciplinas', current + accordion('Histórico', historico)];
 
       let accordions = [];
       for ([grau, alunos] of STUDENTS) {
