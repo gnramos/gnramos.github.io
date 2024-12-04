@@ -12,30 +12,29 @@
     <script type="text/javascript" src="ensino.js"></script>
     <script type="text/javascript">
       function listDisciplinas(periodo, codigos) {
-        let string = `<h5>${periodo}</h5>\n<ul>`;
-        for (codigo of codigos)
-          string += `\n\t<li>${COURSES[codigo]}</a></li>`;
-        return string + '\n</ul>';
+        let liItems = (codigos.map(
+                        (codigo) => `<li>${linkSIGAA(codigo)} - ${disciplinaNome(codigo)}</li>`)
+                      ).join('\n\t');
+        return `<h5>${periodo}</h5>\n<ul>${liItems}\n</ul>`;
       }
 
       let current = listDisciplinas(...(HISTORY[0][1].slice(0, 1)[0]));
       let disciplinas = '';
       let historico = [];
       for ([decada, info] of HISTORY) {
-        disciplinas = '';
-        for ([periodo, codigos] of info)
-          disciplinas += listDisciplinas(periodo, codigos);
-        historico.push([decada, disciplinas]);
+        let [periodo, codigos] = info;
+        disciplinas = info.map(
+                        ([periodo, codigos]) => listDisciplinas(periodo, codigos));
+        historico.push([`${decada}~`, disciplinas]);
       }
       disciplinas = ['Disciplinas', current + accordion('Histórico', historico)];
 
       let accordions = [];
       for ([grau, alunos] of STUDENTS) {
-        let string = '<ul>';
-        for ([nome, titulo, url, extra] of alunos) {
-          string += `\n\t<li>${nome}, <a href="${url}">${titulo}</a> ${extra}</li>`;
-        }
-        accordions.push([grau, string + '\n</ul>']);
+        let liItems = (alunos.map(
+                        ([nome, titulo, url, extra]) => `<li>${nome}, <a href="${url}">${titulo}</a> ${extra}</li>`)
+                      ).join('\n\t');
+        accordions.push([grau, `<ul>${liItems}\n</ul>`]);
       }
       let orientacoes = ['Orientações', accordion('Orientações', accordions)];
     </script>
@@ -46,8 +45,10 @@
     </script>
     <h2>Ensino</h2>
     <script type="text/javascript">
-      document.write(accordion('Disciplinas', [disciplinas, orientacoes]));
+      document.write(accordion('Ensino', [disciplinas, orientacoes]));
       document.write(footer());
     </script>
   </body>
 </html>
+
+
