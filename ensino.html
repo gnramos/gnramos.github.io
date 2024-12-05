@@ -11,32 +11,31 @@
     <script type="text/javascript" src="gnramos.js"></script>
     <script type="text/javascript" src="ensino.js"></script>
     <script type="text/javascript">
-      function listDisciplinas(periodo, codigos) {
-        let liItems = (codigos.map(
-                        (codigo) => `<li>${linkSIGAA(codigo)} - ${disciplinaNome(codigo)}</li>`)
-                      ).join('\n\t');
-        return `<h5>${periodo}</h5>\n<ul>${liItems}\n</ul>`;
+      function courseUL(codes) {
+        let items = codes.map(
+                              (code) => `<li>${SIGAA[code]}</li>`
+                             );
+        return `\n<ul>${items.join('\n\t')}\n</ul>\n`;
       }
 
-      let current = listDisciplinas(...(HISTORY[0][1].slice(0, 1)[0]));
-      let disciplinas = '';
-      let historico = [];
-      for ([decada, info] of HISTORY) {
-        let [periodo, codigos] = info;
-        disciplinas = info.map(
-                        ([periodo, codigos]) => listDisciplinas(periodo, codigos));
-        historico.push([`${decada}~`, disciplinas]);
+      let currentCourses = courseUL(COURSES[0][1][0][1]);
+      let pastCourses = [];
+      for ([decade, info] of COURSES) {
+        let periodInfo = info.map(
+                                  ([period, codes]) => `<h5>${period}</h5>${courseUL(codes)}`
+                                 );
+        pastCourses.push([`${decade}~`, periodInfo]);
       }
-      disciplinas = ['Disciplinas', current + accordion('Histórico', historico)];
+      let coursesInfo = ['Disciplinas', currentCourses + accordion('Histórico', pastCourses)];
 
-      let accordions = [];
-      for ([grau, alunos] of STUDENTS) {
-        let liItems = (alunos.map(
-                        ([nome, titulo, url, extra]) => `<li>${nome}, <a href="${url}">${titulo}</a> ${extra}</li>`)
-                      ).join('\n\t');
-        accordions.push([grau, `<ul>${liItems}\n</ul>`]);
+      let advisorAccordions = [];
+      for ([degree, students] of STUDENTS) {
+        let items = students.map(
+                                 ([studentName, workTitle, url, extra]) => `<li>${studentName}, <a href="${url}">${workTitle}</a> ${extra}</li>`
+                                );
+        advisorAccordions.push([degree, `<ul>${items.join('\n\t')}\n</ul>`]);
       }
-      let orientacoes = ['Orientações', accordion('Orientações', accordions)];
+      let advisorInfo = ['Orientações', accordion('Orientações', advisorAccordions)];
     </script>
   </head>
   <body>
@@ -45,7 +44,7 @@
     </script>
     <h2>Ensino</h2>
     <script type="text/javascript">
-      document.write(accordion('Ensino', [disciplinas, orientacoes]));
+      document.write(accordion('Ensino', [coursesInfo, advisorInfo]));
       document.write(footer());
     </script>
   </body>
