@@ -1,6 +1,6 @@
 :root {
-  --blue-unb: rgb(1, 63, 122);   /* #013F7A  */
-  --green-unb: rgb(0, 129, 54);  /* #008136 */
+  --blue-unb: rgb(0, 51, 102);   /* #003366  */
+  --green-unb: rgb(0, 102, 51);  /* #006633 */
 }
 
 .nav-pills .nav-link.active {
