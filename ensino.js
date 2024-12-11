@@ -1,4 +1,28 @@
-const COURSES = [
+const COURSES = {
+  'CIC0004': ['Algoritmos e Programação de Computadores', '177944'],
+  'CIC0087': ['Tópicos Avançados em Computadores', '178365'],
+  'CIC0088': ['Computação Básica', '178366'],
+  'CIC0089': ['Estruturas de Dados', '178367'],
+  'CIC0090': ['Estruturas de Dados', '178368'],
+  'CIC0116': ['Estudos em Computação Multimídia', '178399'],
+  'CIC0135': ['Introdução a Inteligência Artificial', '178418'],
+  'CIC0136': ['Estudos em Inteligência Artificial', '178419'],
+  'CIC0164': ['Projeto de Licenciatura 2', '178447'],
+  'CIC0165': ['Trabalho de Graduação 1', '178448'],
+  'CIC0167': ['Trabalho de Graduação 2', '178450'],
+  'CIC0169': ['Programação Competitiva', '178452'],
+  'CIC0188': ['Introdução à Engenharia de Computação', '178532'],
+  'ENM0133': ['Introdução a Engenharia Mecatrônica', '185043'],
+  'FTD0004': ['Trabalho de Graduação 2', '184930'],
+  'FTD0006': ['Trabalho de Graduação 1', '184932'],
+  'FTD0021': ['Introdução À Engenharia Mecatrônica', '303350'],
+  'PPCA0018': ['Pesquisa em Engenharia de Software', '295501'],
+  'PPCA0029': ['Pesquisa em Mineração de Dados', '295511'],
+  'PPCA0030': ['Tópicos Avançados em Mineração de Dados', '295512'],
+  'PPCA2211': ['Algoritmos e Estruturas de Dados', '295881'],
+  };
+
+const HISTORY = [
   ['2020', [
     ['2024.2', ['CIC0004']],
     ['2024.1', ['CIC0004', 'CIC0090', 'FTD0021']],
@@ -142,32 +166,4 @@ const STUDENTS = [
                             '2019_PIBIC_Wladimir.pdf',
                             '(<a href="https://conferencias.unb.br/index.php/iniciacaocientifica/25CICUnB16df/paper/view/19748">Resumo</a> indicado ao <a href="http://proic.unb.br/images/Congresso_2019/Indicados_ao_Pr%C3%AAmio_Destaque_de_Inicia%C3%A7%C3%A3o_Cient%C3%ADfica.pdf">Prêmio Destaque de Iniciação Científica</a>)'],
                           ]],
-];
-
-const SIGAA = {
-  'CIC0004': linkSIGAA('CIC0004', 'Algoritmos e Programação de Computadores', '177944'),
-  'CIC0087': linkSIGAA('CIC0087', 'Tópicos Avançados em Computadores', '178365'),
-  'CIC0088': linkSIGAA('CIC0088', 'Computação Básica', '178366'),
-  'CIC0089': linkSIGAA('CIC0089', 'Estruturas de Dados', '178367'),
-  'CIC0090': linkSIGAA('CIC0090', 'Estruturas de Dados', '178368'),
-  'CIC0116': linkSIGAA('CIC0116', 'Estudos em Computação Multimídia', '178399'),
-  'CIC0135': linkSIGAA('CIC0135', 'Introdução a Inteligência Artificial', '178418'),
-  'CIC0136': linkSIGAA('CIC0136', 'Estudos em Inteligência Artificial', '178419'),
-  'CIC0164': linkSIGAA('CIC0164', 'Projeto de Licenciatura 2', '178447'),
-  'CIC0165': linkSIGAA('CIC0165', 'Trabalho de Graduação 1', '178448'),
-  'CIC0167': linkSIGAA('CIC0167', 'Trabalho de Graduação 2', '178450'),
-  'CIC0169': linkSIGAA('CIC0169', 'Programação Competitiva', '178452'),
-  'CIC0188': linkSIGAA('CIC0188', 'Introdução à Engenharia de Computação', '178532'),
-  'ENM0133': linkSIGAA('ENM0133', 'Introdução a Engenharia Mecatrônica', '185043'),
-  'FTD0004': linkSIGAA('FTD0004', 'Trabalho de Graduação 2', '184930'),
-  'FTD0006': linkSIGAA('FTD0006', 'Trabalho de Graduação 1', '184932'),
-  'FTD0021': linkSIGAA('FTD0021', 'Introdução À Engenharia Mecatrônica', '303350'),
-  'PPCA0018': linkSIGAA('PPCA0018', 'Pesquisa em Engenharia de Software', '295501'),
-  'PPCA0029': linkSIGAA('PPCA0029', 'Pesquisa em Mineração de Dados', '295511'),
-  'PPCA0030': linkSIGAA('PPCA0030', 'Tópicos Avançados em Mineração de Dados', '295512'),
-  'PPCA2211': linkSIGAA('PPCA2211', 'Algoritmos e Estruturas de Dados', '295881'),
-};
-
-function linkSIGAA(code, name, linkSIGAAID) {
-  return `<a href="https://sigaa.unb.br/sigaa/link/public/ensino/visualizarComponente/${linkSIGAAID}">${code}</a> - ${name}`;
-}
+  ];

@@ -11,39 +11,39 @@
     <script type="text/javascript" src="gnramos.js"></script>
     <script type="text/javascript" src="ensino.js"></script>
     <script type="text/javascript">
-      function courseUL(codes) {
-        let items = codes.map(
-                              (code) => `<li>${SIGAA[code]}</li>`
-                             );
-        return `\n<ul>${items.join('\n\t')}\n</ul>\n`;
+      function sigaaLink(code) {
+        let [name, id] = COURSES[code];
+        return `<a href="https://sigaa.unb.br/sigaa/link/public/ensino/visualizarComponente/${id}">${code}</a> - ${name}`;
+      }
+      function formatPeriod(period, codes, hide=false) {
+        if (hide)
+          return '';
+        return `<h5>${period}</h5>${mapToList(codes.map((code) => sigaaLink(code)))}`;
+      }
+      function formatDecade(decade, info) {
+        return [`${decade}~`, info.map(
+                                  ([period, codes]) => formatPeriod(period, codes, period == currentPeriod)
+                                  )];
+      }
+      function studentLink(name, title, url, extra) {
+        return `${name}, <a href="${url}">${title}</a> ${extra}`;
+      }
+      function formatStudent(degree, students) {
+        return [degree, mapToList(students.map((info) => studentLink(...info)))];
       }
 
-      let currentCourses = courseUL(COURSES[0][1][0][1]);
-      let pastCourses = [];
-      for ([decade, info] of COURSES) {
-        let periodInfo = info.map(
-                                  ([period, codes]) => `<h5>${period}</h5>${courseUL(codes)}`
-                                 );
-        pastCourses.push([`${decade}~`, periodInfo]);
-      }
-      let coursesInfo = ['Disciplinas', currentCourses + accordion('Histórico', pastCourses)];
-
-      let advisorAccordions = [];
-      for ([degree, students] of STUDENTS) {
-        let items = students.map(
-                                 ([studentName, workTitle, url, extra]) => `<li>${studentName}, <a href="${url}">${workTitle}</a> ${extra}</li>`
-                                );
-        advisorAccordions.push([degree, `<ul>${items.join('\n\t')}\n</ul>`]);
-      }
-      let advisorInfo = ['Orientações', accordion('Orientações', advisorAccordions)];
+      let currentPeriod = HISTORY[0][1][0][0];
+      let currentCourses = formatPeriod(currentPeriod, HISTORY[0][1][0][1]);
+      let coursesInfo = ['Disciplinas', currentCourses + accordion('Histórico',
+                                                                   HISTORY.map((info) => formatDecade(...info)))];
+      let advisorInfo = ['Orientações', accordion('Orientações',
+                                                  STUDENTS.map((info) => formatStudent(...info)))];
     </script>
   </head>
   <body>
     <script type="text/javascript">
       document.write(header());
-    </script>
-    <h2>Ensino</h2>
-    <script type="text/javascript">
+      document.write(`<h2>Ensino</h2>`);
       document.write(accordion('Ensino', [coursesInfo, advisorInfo]));
       document.write(footer());
     </script>

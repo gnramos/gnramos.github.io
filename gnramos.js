@@ -15,6 +15,11 @@ function mailtolink() {
   return "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;unb.br"
 }
 
+function mapToList(array, list='ul') {
+  let items =  array.map((item) => `<li>${item}</li>`);
+  return `\n<${list}>${items.join('\n\t')}\n</${list}>\n`
+}
+
 function header() {
   return `<div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -86,6 +91,7 @@ function accordion(name, items) {
 </div>`;
 }
 
+/*
 function show(list, map) {
   let string = '';
 
@@ -106,4 +112,4 @@ function show(list, map) {
                         </ul>
                       </p>`);
   }
-}
+}*/
