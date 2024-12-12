@@ -11,19 +11,18 @@
     <script type="text/javascript" src="gnramos.js"></script>
     <script type="text/javascript" src="pesquisa.js"></script>
     <script type="text/javascript">
-      let publications = PUBLICATIONS.map(([title, url]) => `<a href="${url}">${title}</a>`);
+      let research = formatHeader(2, 'Pesquisa', `Interesses: ${INTERESTS.join(', ')}`);
+      let publications = formatHeader(4,'Algumas publicações',
+                                      mapToList(
+                                        PUBLICATIONS.map(([title, url]) => `<a href="${url}">${title}</a>`))
+                                     );
     </script>
   </head>
   <body>
     <script type="text/javascript">
       document.write(header());
-      document.write(`
-    <h2>Pesquisa</h2>
-    <p>
-      Interesses: ${INTERESTS.join(', ')}
-    </p>
-    <h4>Algumas publicações</h4>
-    ${mapToList(publications)}`);
+      document.write(research);
+      document.write(publications);
       document.write(footer());
     </script>
   </body>

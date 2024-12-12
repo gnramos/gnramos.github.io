@@ -1,8 +1,6 @@
 const PUBLICATIONS = [
-  ['Hyperboxes and ant colony optimization applied to clustering and classification',
-   'http://topics.libra.titech.ac.jp/en/recordID/catalog.bib/TT00009398?hit=1&caller=xc-search'],
-  // ['Hyperbox clustering with Ant Colony Optimization (HACO) method and its application to medical risk   profile recognition',
-  //  'https://www.sciencedirect.com/science/article/pii/S1568494608001294'],
+  ['Hyperbox clustering with Ant Colony Optimization (HACO) method and its application to medical risk   profile recognition',
+   'https://www.sciencedirect.com/science/article/pii/S1568494608001294'],
   ['Leveraging adaptive modulation with multi-hop routing in elastic optical networks',
    'https://www.sciencedirect.com/science/article/pii/S1389128616301785'],
   ['Statistical and Deep Learning Models for Forecasting Drug Distribution in the Brazilian Public Health   System',

@@ -12,7 +12,7 @@ function navitemLinkClass(linkName) {
 }
 
 function mailtolink() {
-  return "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;unb.br"
+  return "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;" + ["unb", "br"].join(".");
 }
 
 function mapToList(array, list='ul') {
@@ -66,50 +66,35 @@ function footer() {
 }
 
 function accordion(name, items) {
-  let accItems = '';
-  let collapseFirst = true;
-  for (i in items) {
-    accItems += `
+  function formatItem(button, body, index) {
+    const heading = `heading${name + index}`;
+    return `
   <div class="accordion-item">
-    <h2 class="accordion-header" id="heading${name + i}">
-      <button class="accordion-button ${collapseFirst ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${name + i}" aria-expanded="false" aria-controls="collapse${name + i}" style="background: var(--unb-green)">
-        ${items[i][0]}
+    <h2 class="accordion-header" id="heading${heading}">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${heading}" aria-expanded="false" aria-controls="collapse${heading}" style="background: var(--unb-green)">
+        ${button}
       </button>
     </h2>
-    <div id="collapse${name + i}" class="accordion-collapse collapse ${collapseFirst ? '' : 'show'}" aria-labelledby="heading${name + i}" data-bs-parent="#accordion${name}">
+    <div id="collapse${heading}" class="accordion-collapse collapse" aria-labelledby="heading${heading}" data-bs-parent="#accordion${name}">
       <div class="accordion-body">
-        ${items[i][1]}
+        ${body}
       </div>
     </div>
   </div>`;
-    if (!collapseFirst) collapseFirst = true;
   }
+
+  let accordionItems = items.map((item, index) => formatItem(...item, index));
 
   return `
 <div class="accordion" id="accordion${name}">
-  ${accItems}
+  ${accordionItems.join('\n')}
 </div>`;
 }
 
-/*
-function show(list, map) {
-  let string = '';
-
-  for (item of list) {
-    let [title, values] = item;
-    document.write(`
-                      <p>
-                        <strong>${title}</strong>
-                        <ul>`);
-
-    for (id of values) {
-      let [name, url, extra] = map[id];
-      document.write(`
-                          <li><a href="${url}">${name}</a> ${extra}</li>`);
-    }
-
-    document.write(`
-                        </ul>
-                      </p>`);
-  }
-}*/
+function formatHeader(level, name, content) {
+  return `
+    <h${level}>${name}</h${level}>
+    <p>
+      ${content}
+    </p>`;
+}
