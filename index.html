@@ -9,21 +9,22 @@
 
     <link rel="stylesheet" href="gnramos.css">
     <script type="text/javascript" src="gnramos.js"></script>
-  </head>
-  <body>
     <script type="text/javascript">
-      document.write(header());
-    </script>
-    <div class="px-4 py-5 my-5 text-center">
+      let content = `<div class="px-4 py-5 my-5 text-center">
       <img class="d-block mx-auto mb-4" src="img/gnramos.jpg" width="25%">
       <h1 class="display-6 fw-bold text-body-emphasis">Guilherme N. Ramos</h1>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">
-          Graduado em <a href="http://mecatronica.unb.br/">Engenharia Mecatrônica</a> pela <a href="http://www.unb.br/">Universidade de Brasília</a>, mestrado e doutorado em <a href="https://educ.titech.ac.jp/cs/eng/">Inteligência Computacional e Ciência de Sistemas</a> pelo <a href="https://www.isct.ac.jp/en">Instituto de Ciência Tokyo</a> (antes como <a href="http://www.titech.ac.jp/english/">Instituto de Tecnologia de Tóquio</a>), Professor Associado do <a href="https://cic.unb.br/">Departamento de Ciência da Computação</a>.
+          Professor Associado<br>${linkSIGAA('portal', 'SIGAA')}
         </p>
       </div>
-    </div>
+    </div>`;
+    </script>
+  </head>
+  <body>
     <script type="text/javascript">
+      document.write(header());
+      document.write(content);
       document.write(footer());
     </script>
   </body>

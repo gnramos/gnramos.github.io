@@ -1,3 +1,10 @@
+const CONTACT = "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;" + ["unb", "br"].join(".");
+
+function linkSIGAA(categoria, nome='SIGAA', siape=1848410) {
+  'producao'
+  return `<small>(<a href="https://sigaa.unb.br/sigaa/public/docente/${categoria}.jsf?siape=${siape}">${nome}</a>)</small>`;
+}
+
 function navitemLinkClass(linkName) {
   let url = window.location.pathname.split('/');
   let page = url.pop();
@@ -11,13 +18,18 @@ function navitemLinkClass(linkName) {
   return 'nav-link' + (isActive ? ' active' : '');
 }
 
-function mailtolink() {
-  return "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;" + ["unb", "br"].join(".");
+function mapToList(array, listType='ul', itemClass='') {
+  if (itemClass != '')
+    itemClass = `class="${itemClass}"`;
+
+  let items =  array.map((item) => `<li ${itemClass}>${item}</li>`);
+  return `\n<${listType}>${items.join('\n\t')}\n</${listType}>\n`
 }
 
-function mapToList(array, list='ul') {
-  let items =  array.map((item) => `<li>${item}</li>`);
-  return `\n<${list}>${items.join('\n\t')}\n</${list}>\n`
+function formatIcon(url, title, icon, writeTitle=false) {
+  return `<a href="${url}" class="nav-link" title="${title}">
+              <img  class="menu-icon"src="img/${icon}" alt="${title}"/> ${writeTitle ? title : ''}
+          </a>`;
 }
 
 function header() {
@@ -27,27 +39,39 @@ function header() {
             <img src="img/CIC.png" height="32">
           </a>
           <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index.html" class="${navitemLinkClass('index')}">Início</a></li>
-            <li class="nav-item dropdown">
-              <a class="${navitemLinkClass('atividades')} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                Atividades
+            <li class="nav-item">
+              ${formatIcon('index.html', 'Início', 'home.svg')}
+            </li>
+            <li class="nav-item dropdown" title="Atividades">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+              <img class="menu-icon"src="img/bars.svg" alt="Atividades"/>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="ensino.html">Ensino</a></li>
-                <li><a class="dropdown-item" href="pesquisa.html">Pesquisa</a></li>
-                <li><a class="dropdown-item" href="extensao.html">Extensão</a></li>
-                <li><a class="dropdown-item" href="administracao.html">Administração</a></li>
+                <li class="nav-item">
+                  ${formatIcon('ensino.html', 'Ensino', 'education.svg', true)}
+                </li>
+                <li class="nav-item">
+                  ${formatIcon('pesquisa.html', 'Pesquisa', 'microscope.svg', true)}
+                </li>
+                <li class="nav-item">
+                  ${formatIcon('extensao.html', 'Extensão', 'people-group.svg', true)}
+                </li>
+                <li class="nav-item">
+                  ${formatIcon('administracao.html', 'Administração', 'user-tie.svg', true)}
+                </li>
+                <li class="nav-item">
+                  ${formatIcon('agenda.html', 'Agenda', 'calendar-days.svg', true)}
+                </li>
               </ul>
             </li>
-            <li class="nav-item"><a href="agenda.html" class="${navitemLinkClass('agenda')}">Agenda</a></li>
-            <li class="nav-item"><a href="faq.html" class="${navitemLinkClass('faq')}">FAQ</a></li>
-            <li class="nav-item"><a href="${mailtolink()}" class="nav-link">
-              <img src="img/email.svg" alt="e-mail" height="20"/></a>
+            <li class="nav-item">
+              ${formatIcon('faq.html', 'Perguntas Frequentes', 'circle-question.svg')}
             </li>
-            <li class="nav-item"><a href="http://lattes.cnpq.br/7879595143050087" class="nav-link">
-              <img src="img/lattes.png" alt="Currículo Lattes" height="20"/></a>
+            <li class="nav-item">
+              ${formatIcon(CONTACT, 'Contato', 'envelope.svg')}
             </li>
-            <li class="nav-item"><a href="index_en.html" class="nav-link"><img src="img/uk.png" height="20"/></a>
+            <li class="nav-item">
+              ${formatIcon("index_en.html", 'English Page', 'uk.png')}
             </li>
           </ul>
         </header>
@@ -58,10 +82,8 @@ function header() {
 function footer() {
   return `
       </div>
-      <div class="container">
-        <footer class="py-3 my-4 border-top">
-          <p class="text-center text-body-secondary">&copy; ${new Date().getFullYear()} Guilherme N. Ramos</p>
-        </footer>
+      <div class="container py-3 my-4 border-top">
+        <p class="text-center text-body-secondary">&copy; ${new Date().getFullYear()} Guilherme N. Ramos</p>
       </div>`;
 }
 
@@ -91,7 +113,7 @@ function accordion(name, items) {
 </div>`;
 }
 
-function formatHeader(level, name, content) {
+function formatContentHeader(level, name, content) {
   return `
     <h${level}>${name}</h${level}>
     <p>

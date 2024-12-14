@@ -1,6 +1,18 @@
 :root {
   --blue-unb: rgb(0, 51, 102);   /* #003366  */
   --green-unb: rgb(0, 102, 51);  /* #006633 */
+  --primary-color: var(--blue-unb);
+}
+
+.menu-icon {
+  color: var(--primary-color);
+  fill: currentColor;
+  width: 32px;
+  height: 32px;
+}
+
+.dropdown-menu {
+  width: max-content;
 }
 
 .nav-pills .nav-link.active {

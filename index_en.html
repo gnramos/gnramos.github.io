@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="gnramos.css">
+    <script type="text/javascript" src="gnramos.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,14 +17,19 @@
           <img src="img/CIC.png" height="32">
         </a>
         <ul class="nav nav-pills">
-          <li class="nav-item"><a href="index_en.html" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;unb.br" class="nav-link">
-              <img src="img/email.svg" alt="e-mail" height="20"/></a>
-            </li>
-            <li class="nav-item"><a href="http://lattes.cnpq.br/7879595143050087" class="nav-link">
-              <img src="img/lattes.png" alt="Currículo Lattes" height="20"/></a>
-            </li>
-          <li class="nav-item"><a href="index.html" class="nav-link"><img src="img/br.png" height="20"/></a></li>
+          <li class="nav-item">
+            <script type="text/javascript">
+              document.write(formatIcon('agenda.html', 'Schedule', 'calendar-days.svg'));
+            </script>
+          </li>
+          <li class="nav-item">
+            <script type="text/javascript">
+              document.write(formatIcon(CONTACT, 'Contact', 'envelope.svg'));
+            </script>
+          </li>
+          <li class="nav-item"><a href="index.html" class="nav-link" title="Página em Português">
+            <img class="menu-icon" src="img/br.png" alt="Página em Português"/></a>
+          </li>
         </ul>
       </header>
     </div>
@@ -33,16 +39,12 @@
         <h1 class="display-6 fw-bold text-body-emphasis">Guilherme N. Ramos</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">
-            <a href="http://mecatronica.unb.br/">Mechatronics Engineering</a> degree at University of Brasília</a>, M. Eng. and Ph. D. in <a href="https://educ.titech.ac.jp/cs/eng/">Computational Intelligence and Systems Science</a> at <a href="https://www.isct.ac.jp/en"> Institute of Science Tokyo</a> (previously <a href="http://www.titech.ac.jp/english/">Tokyo Institute of Technology</a>), Associate Professorof the <a href="https://cic.unb.br/">Departament of Computer Science</a>.
+            Associate Professor
           </p>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <footer class="py-3 my-4 border-top">
-        <p class="text-center text-body-secondary">&copy;
-        <script type="text/javascript">document.write(new Date().getFullYear())</script> Guilherme N. Ramos</p>
-      </footer>
-    </div>
+    <script type="text/javascript">
+      document.write(footer());
+    </script>
   </body>
 </html>
