@@ -14,12 +14,9 @@
   <body>
     <script type="text/javascript">
       document.write(header());
-    </script>
-    <div class="container">
-      <p>Acesse a agenda <a href="https://outlook.office365.com/owa/calendar/b36b556712cd420ab6448aa7e6ff7983@unb.br/0e0dc54ea469484a87c3c599bafca2419623882151280019173/calendar.html">neste link</a>.
-      </p>
-    </div>
-    <script type="text/javascript">
+      document.write(formatContentHeader(2, 'Agenda', `
+      <p>Acesse a minha agenda <a href="https://outlook.office365.com/owa/calendar/b36b556712cd420ab6448aa7e6ff7983@unb.br/0e0dc54ea469484a87c3c599bafca2419623882151280019173/calendar.html">neste link</a>.
+      </p>`));
       document.write(footer());
     </script>
   </body>
