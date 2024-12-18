@@ -36,17 +36,18 @@ function accordion(name, items) {
 </div>`;
 }
 
-
 function linkSIGAA(categoria) {
   return `<small>(<a href="https://sigaa.unb.br/sigaa/public/docente/${categoria}.jsf?siape=1848410">SIGAA</a>)</small>`;
 }
 
-function mapToList(array, listType='ul', itemClass='') {
+function mapToList(array, listType='ul', listClass='', itemClass='') {
+  if (listClass != '')
+    listClass = `class="${listClass}"`;
   if (itemClass != '')
     itemClass = `class="${itemClass}"`;
 
   let items =  array.map((item) => `<li ${itemClass}>${item}</li>`);
-  return `\n<${listType}>${items.join('\n\t')}\n</${listType}>\n`
+  return `\n<${listType} ${listClass}>${items.join('\n\t')}\n</${listType}>\n`
 }
 
 function menuIcon(url, title, icon, writeTitle=false) {
@@ -58,9 +59,9 @@ function menuIcon(url, title, icon, writeTitle=false) {
 function header() {
   let page = window.location.pathname.split('/').pop();
   let homeIcon = '';
-  if (!page.startsWith('index'))
+  if (page != '' && !page.startsWith('index'))
     homeIcon = `<li class="nav-item">
-              ${menuIcon('index.html', 'Início', 'home.svg')}
+              ${menuIcon('./', 'Início', 'home.svg')}
             </li>`;
 
   return `<div class="container">
