@@ -1,6 +1,6 @@
 const CALENDAR = 'https://outlook.office365.com/owa/calendar/b36b556712cd420ab6448aa7e6ff7983@unb.br/0e0dc54ea469484a87c3c599bafca2419623882151280019173/calendar.html';
 
-const CONTACT = "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;" + ["unb", "br"].join(".");
+const MAILTO = "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;" + ["unb", "br"].join(".");
 
 const ACTIVITIES = [
                     ['ensino.html', 'Ensino', 'education.svg'],
@@ -11,18 +11,18 @@ const ACTIVITIES = [
                    ];
 
 function accordion(name, items) {
-  function formatItem(button, body, index) {
+  function formatItem(buttonText, bodyText, index) {
     const heading = `heading${name + index}`;
     return `
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading${heading}">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${heading}" aria-expanded="false" aria-controls="collapse${heading}" style="background: var(--unb-green)">
-        ${button}
+        ${buttonText}
       </button>
     </h2>
     <div id="collapse${heading}" class="accordion-collapse collapse" aria-labelledby="heading${heading}" data-bs-parent="#accordion${name}">
       <div class="accordion-body">
-        ${body}
+        ${bodyText}
       </div>
     </div>
   </div>`;
@@ -67,7 +67,7 @@ function header() {
   return `<div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
           <a href="https://cic.unb.br/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <img src="img/CIC.png" height="32">
+            <img src="img/CIC.png" class="menu-logo">
           </a>
           <ul class="nav nav-pills">
             ${homeIcon}
@@ -83,7 +83,7 @@ function header() {
               ${menuIcon('faq.html', 'Perguntas Frequentes', 'circle-question.svg')}
             </li>
             <li class="nav-item">
-              ${menuIcon(CONTACT, 'Contato', 'envelope.svg')}
+              ${menuIcon(MAILTO, 'Contato', 'envelope.svg')}
             </li>
             <li class="nav-item">
               ${menuIcon("index_en.html", 'English Page', 'uk.png')}

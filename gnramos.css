@@ -11,6 +11,10 @@
   height: 32px;
 }
 
+.menu-logo {
+  height: 32px;
+}
+
 .dropdown-menu {
   width: max-content;
 }
