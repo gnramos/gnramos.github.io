@@ -40,9 +40,9 @@
         'robótica',
       ];
 
-      let research = contentHeader(`Pesquisa ${linkSIGAA('pesquisa'}`, `Interesses: ${INTERESTS.join(', ')}`);
+      let research = contentHeader(`Pesquisa`, `Interesses: ${INTERESTS.join(', ')}`);
       let links = PUBLICATIONS.map(([title, url]) => `<a href="${url}">${title}</a>`);
-      let publications = contentHeader(`Algumas publicações ${linkSIGAA('producao')}`,
+      let publications = contentHeader(`Algumas publicações:`,
                                        mapToList(links),
                                        level=4
                                        );
@@ -52,7 +52,7 @@
     <script type="text/javascript">
       document.write(header());
       document.write(research);
-      document.write(publications);
+      document.write(publications + `Veja outras no ${linkSIGAA('producao')}.`);
       document.write(footer());
     </script>
   </body>

@@ -37,7 +37,7 @@ function accordion(name, items) {
 }
 
 function linkSIGAA(categoria) {
-  return `<small>(<a href="https://sigaa.unb.br/sigaa/public/docente/${categoria}.jsf?siape=1848410">SIGAA</a>)</small>`;
+  return `<a href="https://sigaa.unb.br/sigaa/public/docente/${categoria}.jsf?siape=1848410">SIGAA</a>`;
 }
 
 function mapToList(array, listType='ul', listClass='', itemClass='') {

@@ -209,8 +209,9 @@
       let currentPeriod = HISTORY[0][1][0][0];
       let currentCourses = formatPeriod(currentPeriod, HISTORY[0][1][0][1]);
       let coursesInfo = ['Disciplinas',
-                         currentCourses + accordion('Histórico',
-                                                    HISTORY.map((info) => formatDecade(...info)))];
+                         `<p>Mais detalhes no ${linkSIGAA('disciplinas')}.</p>` +
+                         currentCourses +
+                         accordion('Histórico', HISTORY.map((info) => formatDecade(...info)))];
       let advisorInfo = ['Orientações',
                          accordion('Orientações',
                                    STUDENTS.map((info) => formatStudent(...info)))];
@@ -219,7 +220,7 @@
   <body>
     <script type="text/javascript">
       document.write(header());
-      document.write(contentHeader(`Ensino ${linkSIGAA('disciplinas')}`,
+      document.write(contentHeader(`Ensino`,
                                    accordion('Ensino', [coursesInfo, advisorInfo])));
       document.write(footer());
     </script>
