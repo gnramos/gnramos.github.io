@@ -1,14 +1,14 @@
-const CALENDAR = 'https://outlook.office365.com/owa/calendar/b36b556712cd420ab6448aa7e6ff7983@unb.br/0e0dc54ea469484a87c3c599bafca2419623882151280019173/calendar.html';
+const CALENDAR = 'https://tinyurl.com/mrnb6s78'; //https://outlook.office365.com/owa/calendar/b36b556712cd420ab6448aa7e6ff7983@unb.br/0e0dc54ea469484a87c3c599bafca2419623882151280019173/calendar.html
 
 const MAILTO = "&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#103;&#110;&#114;&#97;&#109;&#111;&#115;&#64;" + ["unb", "br"].join(".");
 
 const ACTIVITIES = [
-                    ['ensino.html', 'Ensino', 'education.svg'],
-                    ['pesquisa.html', 'Pesquisa', 'microscope.svg'],
+                    [CALENDAR, 'Agenda', 'calendar-days.svg'],
+                   ['ensino.html', 'Ensino', 'education.svg'],
                     ['extensao.html', 'Extensão', 'globe.svg'],
                     ['gestao.html', 'Gestão', 'gear.svg'],
-                    [CALENDAR, 'Agenda', 'calendar-days.svg'],
-                   ];
+                    ['pesquisa.html', 'Pesquisa', 'microscope.svg'],
+                    ];
 
 function accordion(name, items) {
   function formatItem(buttonText, bodyText, index) {
